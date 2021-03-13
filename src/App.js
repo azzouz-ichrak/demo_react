@@ -1,15 +1,24 @@
 import React from 'react';
 
-const App = () => {
-  const now = new Date();
-  console.log("NOW:---", now)
-  const a = 10;
-  const b = 20;
-  console.log('hello from component');
+
+const Hello = (props) =>{
   return(
     <div>
-      <h1>hello world.. it's {now.toString()}</h1>
-      <p>{a} + {b} = {a+b}</p>
+      <p>hello {props.name}, you are {props.age} years old!!</p>
+    </div>
+  )
+}
+
+const App = () => {
+  const name = 'azzouz';
+  const age = 25;
+  
+  return(
+    <div>
+      <h1>Greeting</h1>
+      <Hello name="ichrak" age={26 + 10} />
+      <Hello name={name} age={age} />
+
     </div>
   )
 }
