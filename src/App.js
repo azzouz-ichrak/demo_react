@@ -9,14 +9,6 @@ const Hello = (props) =>{
   )
 }
 
-const Footer = () =>{
-  const today = new Date()
-  return(
-    <div>
-      hello app created {today.toString()}
-    </div>
-  )
-}
 
 const App = () => {
   const name = 'azzouz';
@@ -27,7 +19,6 @@ const App = () => {
       <h1>Greeting</h1>
       <Hello name="ichrak" age={26 + 10} />
       <Hello name={name} age={age} />
-      <Footer />
 
     </div>
   )
