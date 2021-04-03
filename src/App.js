@@ -11,13 +11,13 @@ const Hello = (props) =>{
 
 
 const App = () => {
-  const name = 'azzouz';
+  const name = 'mejri';
   const age = 25;
   
   return(
     <div>
       <h1>Greeting</h1>
-      <Hello name="ichrak" age={26 + 10} />
+      <Hello name="seyf" age={26 + 10} />
       <Hello name={name} age={age} />
 
     </div>
