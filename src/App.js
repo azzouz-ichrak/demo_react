@@ -6,20 +6,14 @@ const App = () => {
   const setToZero = () => setCounter(0)
   const decreaseByOne = () => setCounter(counter - 1)
 
-  const Display = (props) => {
+  const Display = ({ counter }) => <h3>{counter}</h3>
+
+  const Button = ({ className, handelClick, text }) => {
     return (
-      <h3>
-        {props.counter}
-      </h3>
-    )
-  }
-  const Button = (props) => {
-    return (
-      <button className={props.className} onClick={props.handelClick}>
-        {props.text}
+      <button className={className} onClick={handelClick}>
+        {text}
       </button>
     )
-
   }
 
   /*
@@ -30,15 +24,15 @@ const App = () => {
   */
 
   return (
-    <div>
-      <Display counter={counter} />
-      <div className="btn-group " role="group" aria-label="...">
-        <Button  handelClick={increaseByOne} text="plus" className="btn btn-primary" />
-        <Button handelClick={setToZero} text="zero" className="btn btn-info" />
-        <Button handelClick={decreaseByOne} text="minus" className="btn btn-danger" /> 
+    <div className="row">
+      <div className="col-sm-6 col-sm-offset-3 text-center">
+        <Display counter={counter} />
+        <div className="btn-group" role="group">
+          <Button handelClick={increaseByOne} text="Plus" className="btn btn-primary" />
+          <Button handelClick={setToZero} text="Zero" className="btn btn-danger" />
+          <Button handelClick={decreaseByOne} text="Minus" className="btn btn-info" />
+        </div>
       </div>
-
-
     </div>
   )
 }
