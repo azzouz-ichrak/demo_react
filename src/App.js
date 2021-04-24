@@ -1,38 +1,43 @@
 import { useState } from 'react';
 
 const App = () => {
-  const [counter, setCounter] = useState(0)
-  const increaseByOne = () => setCounter(counter + 1)
-  const setToZero = () => setCounter(0)
-  const decreaseByOne = () => setCounter(counter - 1)
+  // const [left, setLeft] = useState(0)
+  // const [right, setRight] = useState(0)
+  const [clicks, setClicks] = useState({ left: 0, right: 0 })
 
-  const Display = ({ counter }) => <h3>{counter}</h3>
-
-  const Button = ({ className, handelClick, text }) => {
-    return (
-      <button className={className} onClick={handelClick}>
-        {text}
-      </button>
-    )
-  }
-
-  /*
-  setTimeout(
-    () => setCounter(counter + 1),
-    1000
-  )
-  */
+  // const handleLeftClick = () => {
+  //   const newClicks = {
+  //     // right: clicks.right,
+  //     ...clicks,
+  //     left: clicks.left + 1
+  //   }
+  //   setClicks(newClicks)
+  // }
+  const handleLeftClick = () => setClicks({ ...clicks, left: clicks.left + 1 })
+  // const handleLeftClick = () =>{
+  //   clicks.left++
+  //   setClicks(clicks)
+  // }
+  const handleRightClick = () => setClicks({ ...clicks, right: clicks.right + 1 })
+  // const handleRightClick = () => {
+  //   const newClicks = {
+  //     // left: clicks.left,
+  //     ...clicks,
+  //     right: clicks.right + 1
+  //   }
+  //   setClicks(newClicks)
+  // }
 
   return (
-    <div className="row">
-      <div className="col-sm-6 col-sm-offset-3 text-center">
-        <Display counter={counter} />
-        <div className="btn-group" role="group">
-          <Button handelClick={increaseByOne} text="Plus" className="btn btn-primary" />
-          <Button handelClick={setToZero} text="Zero" className="btn btn-danger" />
-          <Button handelClick={decreaseByOne} text="Minus" className="btn btn-info" />
-        </div>
-      </div>
+    <div className="text-center">
+      {clicks.left}
+      <button onClick={handleLeftClick} className="btn btn-info">
+        Left
+        </button>
+      <button onClick={handleRightClick} className="btn btn-danger">
+        Right
+        </button>
+      {clicks.right}
     </div>
   )
 }
